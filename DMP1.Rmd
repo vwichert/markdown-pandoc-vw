@@ -1,30 +1,62 @@
 ---
 author: "V. Wichert"
-date: '8/5/2019'
-output: 'html_document'
-title: DMP Version 0
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  html_document:
+    toc: TRUE
+    toc_depth: 1
+    toc_float: TRUE
+    number_sections: TRUE
+    theme: cerulean
+    highlight: tango
+    code_folding: hide
+title: DMP Version 5
+
+bibliography: references.bib
 ---
 
-Data Management Plan: Rio Grande Basin Hydrologic Geodatabase
-Compendium.
 
-1.  Types of Data Produced
 
-This project will result in the production of a relational
+# Data Management Plan: Rio Grande Basin Hydrologic Geodatabase Compendium {-}
+
+# Background {-}
+The field area of this investigation is illustrated below.
+
+![Figure 1](img/rio-grande-basin.png){width=50%}
+
+
+[Map Source: @Bartolino_1979]
+
+```{r table1, echo=TRUE}
+usgs <- read.csv("data/usgs.csv") # This is a comment. 
+head(usgs, 1)
+```
+This dataset has `r nrow(usgs)` sampling sites. 
+
+```{r plot1, echo=TRUE}
+plot(faithful, main= "Do I wait longer for eruptions?")
+```
+
+# Types of Data Produced
+
+  - This project will result in the production of a relational
 spatially-enabled database integrating all known surface water, ground
 water, and water quality data for the middle Rio Grande basin study
-area. Additionally, Visual Basic for Applications (VBA) code and
-Structured Query Language (SQL) code are products of the project. All
-updateable datasets are acquired from the original data source (for
-example, EPA websites). Updatable data sources are acquired at specified
-intervals – quarterly, or as needed. As new static data sources are
-discovered, they will be integrated into the proposed compendium. Data
-will be processed using dataset‐specific VBA programs. Program file
-comment headers will be included in the code to explain required input
+area. 
+  - Additionally, `Visual Basic for Applications (VBA)` code and
+`Structured Query Language (SQL)` code are products of the project. 
+  - All updateable datasets are acquired from the original data source (for
+example, EPA websites). 
+  - Updatable data sources are acquired at specified
+intervals – quarterly, or as needed. 
+  - As new static data sources are
+discovered, they will be integrated into the proposed compendium. 
+    - Data will be processed using dataset‐specific VBA programs. 
+Program file comment headers will be included in the code to explain required input
 variables, purpose of the program, and requirements needed by the user.
-Code will be annotated to promote code readability.
+    - Code will be annotated to promote code readability.
 
-2.  Data and Metadata Standards
+# Data and Metadata Standards
 
 Microsoft Access Database format will be used since it is
 readily-accessible and it is compatible with ESRI ArcGIS
@@ -47,14 +79,13 @@ tables.
 
 A data dictionary will be created that defines the table definition,
 table fields, and table field data types. An entity-relationship diagram
-will be created that defines the relational structure of the database. A
-metadata record will be produced using the FGDC standard that describes
-the entire geodatabase.
+will be created that defines the relational structure of the database^[A metadata record will be produced using the FGDC standard that describes
+the entire geodatabase.].
 
 The FGDC standard was chosen due to required Federal government
 standards.
 
-3.  Policies for Access and Sharing
+# Policies for Access and Sharing
 
 The data are public and will be obtainable thru the New Mexico
 Interstate Stream Commission (NMISC). Users of the data will primarily
@@ -62,7 +93,7 @@ be water resource managers in the Rio Grande Basin. USGS publications
 will be released describing the methods and data sources and can be used
 as documentation for the data and to cite the data.
 
-4.  Policies for Re-use, Distribution
+# Policies for Re-use, Distribution
 
 Access to databases and associated software tools generated under the
 project will be available for educational, research and non-profit
@@ -70,14 +101,14 @@ purposes. Such access will be provided using web-based applications, as
 appropriate.
 
 Materials generated under the project will be disseminated in accordance
-with University/Participating institutional and NSF policies. Depending
+with University/Participating institutional and NSF policies [See, e.g., @Briney_2015]. Depending
 on such policies, materials may be transferred to others under the terms
 of a material transfer agreement.
 
 The data files have a suggested citation, which will be described in the
 metadata in addition to the USGS publications.
 
-5.  Plans for Archiving and Preservation
+# Plans for Archiving and Preservation
 
 All original raw data files and data source processing programs will be
 versioned over time and maintained in a date-stamped file structure with
@@ -92,3 +123,10 @@ addition to archiving, each database table will be exported to a
 delimited text format to ensure accessibility of the data by other
 software programs. The data manager at the NMISC will be responsible for
 the management of long-term storage and archived data.
+
+# Distribution Rights
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
+
+
+# References {-}
